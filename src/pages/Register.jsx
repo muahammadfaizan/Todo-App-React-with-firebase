@@ -13,15 +13,15 @@ const Register = () => {
   const passwordVal = useRef()
   const navigate = useNavigate()
 
-  const registerBtn = (event)=>{
+  const RegisterBtn = (event)=>{
     event.preventDefault();
 
-    createUserWithEmailAndPassword(auth, userNameVal.current.value ,  emailVal.current.value, passwordVal.current.value)
+    createUserWithEmailAndPassword(auth, emailVal.current.value, passwordVal.current.value)
     .then((userCredential) => {
       // Signed up 
       const user = userCredential.user;
       console.log(user);
-      // navigate("login")
+      navigate('/login')
       
     })
     .catch((error) => {
@@ -42,7 +42,7 @@ const Register = () => {
     <h1 className='text-center mt-5'>Register</h1>
 
   <div className='d-flex justify-content-center align-item-center mt-4'>
-   <form onSubmit={registerBtn}>
+   <form onSubmit={RegisterBtn}>
    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
    <Form.Label>Username</Form.Label>
    <Form.Control type="text" placeholder="Enter Your Name" ref={userNameVal} />
