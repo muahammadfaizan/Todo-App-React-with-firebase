@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import Button from 'react-bootstrap/Button';
 import { Form } from 'react-bootstrap';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../config/firebaseconfig';
 
 const Login = () => {
@@ -45,6 +45,10 @@ const Login = () => {
      <Form.Label>Password</Form.Label>
      <Form.Control type="password" placeholder="Enter Password" ref={passwordVal} />
       </Form.Group>
+      
+      <div className='text-center mt-3'>
+       <span>Not a user?</span> <Link to={'/register'}>Sign Up</Link>
+      </div>
      <div className='text-center mt-3'>
      <Button variant="outline-primary" type='submit'>Login</Button>
      </div>

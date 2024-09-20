@@ -3,7 +3,7 @@ import { useRef } from 'react'
 import { Button , Form } from 'react-bootstrap'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../config/firebaseconfig'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 const Register = () => {
@@ -59,6 +59,10 @@ const Register = () => {
    <Form.Label>Password</Form.Label>
    <Form.Control type="password" placeholder="Enter Password" ref={passwordVal} />
     </Form.Group>
+    <div className='text-center mt-3'>
+      <span >Already a user?</span><Link to={'/login'}>Sign In</Link>
+      </div> 
+
     <div className='text-center mt-3'>
     <Button variant="outline-primary" type='submit' >Register</Button>
     </div>
